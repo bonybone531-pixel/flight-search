@@ -1,10 +1,10 @@
-import { addDays, generateTargetDatePairs } from "./dateMatcher";
+import { addDays, pairsForDepartureDate } from "./dateMatcher";
 import { computeBaseline, HistoryEntry, loadHistory, saveHistory } from "./history";
-import { DirectFare, discoverDirectDestinations, getExactFare } from "./travelpayouts";
+import { DirectFare, discoverDirectDestinations, getCachedDepartureDates, getExactFare } from "./travelpayouts";
 
 const ORIGIN = "RMQ";
 const WINDOW_DAYS = 183;
-const REQUEST_DELAY_MS = 120;
+const REQUEST_DELAY_MS = 400;
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -16,19 +16,24 @@ interface BestFare extends DirectFare {
 
 async function main() {
   const today = new Date().toISOString().slice(0, 10);
+  const windowEnd = addDays(today, WINDOW_DAYS);
   console.log(`[scan] ${today} 開始掃描 ${ORIGIN} 直飛特價`);
 
   const destinations = await discoverDirectDestinations(ORIGIN);
   console.log(`[scan] 發現 ${destinations.length} 個直飛航點: ${destinations.join(", ")}`);
 
-  const datePairs = generateTargetDatePairs(today, addDays(today, WINDOW_DAYS));
-  console.log(`[scan] 產生 ${datePairs.length} 組候選日期（週末/連假）`);
-
   const bestByDestination = new Map<string, BestFare>();
 
   for (const destination of destinations) {
+    const cachedDates = await getCachedDepartureDates(ORIGIN, destination);
+    const candidatePairs = cachedDates
+      .filter((date) => date >= today && date < windowEnd)
+      .flatMap((date) => pairsForDepartureDate(date));
+
+    console.log(`[scan] ${destination}: ${cachedDates.length} 個快取出發日，${candidatePairs.length} 組符合週末/連假條件`);
+
     let best: BestFare | null = null;
-    for (const pair of datePairs) {
+    for (const pair of candidatePairs) {
       try {
         const fare = await getExactFare(ORIGIN, destination, pair.departDate, pair.returnDate);
         if (fare && (!best || fare.price < best.price)) best = { ...fare, label: pair.label };
@@ -37,6 +42,7 @@ async function main() {
       }
       await sleep(REQUEST_DELAY_MS);
     }
+
     if (best) {
       bestByDestination.set(destination, best);
       console.log(`[scan] ${destination} 最佳價格: ${best.price} (${best.label}, ${best.departure_at} -> ${best.return_at})`);
