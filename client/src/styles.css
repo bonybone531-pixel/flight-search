@@ -1,0 +1,371 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f5f6f8;
+  color: #1c1f26;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+header h1 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 8px 16px;
+  border: 1px solid #d5d8de;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tabs button.active {
+  background: #1c1f26;
+  color: #fff;
+  border-color: #1c1f26;
+}
+
+form {
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #4b5160;
+  flex: 1;
+  min-width: 140px;
+}
+
+input,
+select {
+  padding: 8px 10px;
+  border: 1px solid #d5d8de;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}
+
+form > button[type="submit"] {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+form > button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.trip-type-toggle {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.trip-type-toggle label {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #d5d8de;
+  border-radius: 8px;
+  margin-top: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 4px;
+}
+
+.autocomplete-list li {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.autocomplete-list li:hover {
+  background: #f0f2f5;
+}
+
+.autocomplete-list .iata {
+  font-weight: 700;
+}
+
+.autocomplete-list .name {
+  color: #6b7280;
+}
+
+.error-banner {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.sort-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.sort-controls button {
+  padding: 6px 12px;
+  border: 1px solid #d5d8de;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+}
+
+.sort-controls button.active {
+  background: #1c1f26;
+  color: #fff;
+  border-color: #1c1f26;
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.airline-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.airline-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flight-card {
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.itineraries {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.itinerary .route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.itinerary .arrow {
+  color: #9aa1ac;
+}
+
+.itinerary .meta {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.summary {
+  text-align: right;
+  min-width: 140px;
+}
+
+.summary .duration {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.summary .airline {
+  font-size: 12px;
+  color: #9aa1ac;
+}
+
+.summary .price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c1f26;
+}
+
+.summary .seats-warning {
+  font-size: 12px;
+  color: #b45309;
+}
+
+.empty-state {
+  color: #6b7280;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.compare-form .hint {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.compare-leg {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.compare-leg .leg-index {
+  font-weight: 700;
+  color: #9aa1ac;
+  padding-bottom: 8px;
+}
+
+.remove-leg {
+  padding: 8px 12px;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 12px;
+  height: fit-content;
+}
+
+.compare-form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.compare-form-actions button:first-child {
+  background: #fff;
+  border: 1px solid #d5d8de;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.compare-results {
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.best-overall {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef0f3;
+  vertical-align: top;
+}
+
+.compare-table .best-row {
+  background: #ecfdf5;
+}
+
+.error-text {
+  color: #b91c1c;
+}
