@@ -54,7 +54,9 @@ async function main() {
   const todaysPrices: Record<string, number> = {};
   for (const [destination, fare] of bestByDestination) todaysPrices[destination] = fare.price;
 
-  const history = loadHistory();
+  // Drop any existing rows for today so re-running the same day (e.g. a manual
+  // workflow_dispatch retry) replaces rather than duplicates them.
+  const history = loadHistory().filter((e) => e.scanDate !== today);
   const newEntries: HistoryEntry[] = [];
 
   for (const [destination, fare] of bestByDestination) {
