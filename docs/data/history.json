@@ -1,0 +1,13 @@
+[
+  {
+    "scanDate": "2026-08-05",
+    "destination": "OKA",
+    "price": 10797,
+    "baseline": 10797,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-04T17:00:00+08:00",
+    "returnAt": "2026-12-07T20:30:00+09:00",
+    "transfers": 0
+  }
+]

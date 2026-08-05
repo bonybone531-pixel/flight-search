@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台中直飛特價機票報告</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f5f6f8;
+      color: #1c1f26;
+    }
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+    h1 { font-size: 22px; margin-bottom: 4px; }
+    .subtitle { color: #6b7280; font-size: 13px; margin-bottom: 24px; }
+    section {
+      background: #fff;
+      border: 1px solid #e2e4e9;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    section h2 { font-size: 16px; margin: 0 0 14px; }
+    #chart-empty, #table-empty, #promo-empty {
+      color: #6b7280;
+      font-size: 13px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid #eef0f3;
+      white-space: nowrap;
+    }
+    tr.deal { background: #ecfdf5; }
+    .deal-badge {
+      background: #047857;
+      color: #fff;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .promo-item {
+      border-bottom: 1px solid #eef0f3;
+      padding: 10px 0;
+    }
+    .promo-item:last-child { border-bottom: none; }
+    .promo-title { font-weight: 600; font-size: 14px; }
+    .promo-meta { color: #6b7280; font-size: 12px; margin-top: 2px; }
+    .promo-summary { font-size: 13px; margin-top: 4px; }
+    a { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>台中機場（RMQ）直飛特價機票報告</h1>
+    <p class="subtitle">每天自動掃描未來半年內跨週末／連假的直飛來回票價，找出低於平時價格 30% 以上的特價</p>
+
+    <section>
+      <h2>價格趨勢</h2>
+      <div id="chart-empty">資料還在累積中，明天再回來看看。</div>
+      <canvas id="priceChart" height="90" style="display:none"></canvas>
+    </section>
+
+    <section>
+      <h2>每日更新紀錄</h2>
+      <div id="table-empty">尚無資料。</div>
+      <div style="overflow-x:auto">
+        <table id="historyTable" style="display:none">
+          <thead>
+            <tr>
+              <th>掃描日期</th>
+              <th>航點</th>
+              <th>最低價 (TWD)</th>
+              <th>平時基準</th>
+              <th>狀態</th>
+              <th>去程</th>
+              <th>回程</th>
+              <th>航空公司</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>航空公司促銷 / 旅展消息</h2>
+      <div id="promo-empty">尚無資料。</div>
+      <div id="promoList"></div>
+    </section>
+  </div>
+
+  <script>
+    const DESTINATION_NAMES = {
+      HKG: "香港", MFM: "澳門", OKA: "沖繩", SEL: "首爾", ICN: "首爾仁川",
+      PUS: "釜山", HAN: "河內", CTU: "成都", CNX: "清邁", NRT: "東京成田",
+      KMJ: "熊本", KIX: "大阪關西", NGO: "名古屋", TAK: "高松", UKB: "神戶",
+      CTS: "札幌", MMY: "宮古島",
+    };
+
+    function destName(code) {
+      return DESTINATION_NAMES[code] ? `${DESTINATION_NAMES[code]} (${code})` : code;
+    }
+
+    function fmtDateTime(iso) {
+      if (!iso) return "";
+      const d = new Date(iso);
+      return d.toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
+    }
+
+    async function loadJson(path) {
+      try {
+        const res = await fetch(path, { cache: "no-store" });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch {
+        return null;
+      }
+    }
+
+    function renderChart(history) {
+      const chartEmpty = document.getElementById("chart-empty");
+      const canvas = document.getElementById("priceChart");
+      if (!history || history.length === 0) return;
+
+      const destinations = [...new Set(history.map((e) => e.destination))];
+      const scanDates = [...new Set(history.map((e) => e.scanDate))].sort();
+
+      const palette = ["#2563eb", "#dc2626", "#059669", "#d97706", "#7c3aed", "#0891b2", "#db2777", "#65a30d"];
+      const datasets = destinations.map((dest, i) => {
+        const byDate = new Map(history.filter((e) => e.destination === dest).map((e) => [e.scanDate, e.price]));
+        return {
+          label: destName(dest),
+          data: scanDates.map((d) => byDate.get(d) ?? null),
+          borderColor: palette[i % palette.length],
+          backgroundColor: palette[i % palette.length],
+          spanGaps: true,
+          tension: 0.2,
+        };
+      });
+
+      chartEmpty.style.display = "none";
+      canvas.style.display = "block";
+      new Chart(canvas, {
+        type: "line",
+        data: { labels: scanDates, datasets },
+        options: {
+          responsive: true,
+          interaction: { mode: "nearest", intersect: false },
+          scales: { y: { title: { display: true, text: "TWD" } } },
+        },
+      });
+    }
+
+    function renderTable(history) {
+      const tableEmpty = document.getElementById("table-empty");
+      const table = document.getElementById("historyTable");
+      if (!history || history.length === 0) return;
+
+      const sorted = [...history].sort((a, b) => (a.scanDate < b.scanDate ? 1 : -1));
+      const tbody = table.querySelector("tbody");
+      for (const entry of sorted) {
+        const tr = document.createElement("tr");
+        if (entry.isDeal) tr.className = "deal";
+        tr.innerHTML = `
+          <td>${entry.scanDate}</td>
+          <td>${destName(entry.destination)}</td>
+          <td>${entry.price.toLocaleString()}</td>
+          <td>${entry.baseline.toLocaleString()}</td>
+          <td>${entry.isDeal ? '<span class="deal-badge">特價</span>' : "-"}</td>
+          <td>${fmtDateTime(entry.departureAt)}</td>
+          <td>${fmtDateTime(entry.returnAt)}</td>
+          <td>${entry.airline}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+      tableEmpty.style.display = "none";
+      table.style.display = "table";
+    }
+
+    function renderPromotions(promo) {
+      const empty = document.getElementById("promo-empty");
+      const list = document.getElementById("promoList");
+      if (!promo || !promo.items || promo.items.length === 0) return;
+
+      for (const item of promo.items) {
+        const div = document.createElement("div");
+        div.className = "promo-item";
+        div.innerHTML = `
+          <div class="promo-title">${item.title ?? ""}</div>
+          <div class="promo-meta">${item.source ?? ""}${item.deadline ? " · 至 " + item.deadline : ""}</div>
+          <div class="promo-summary">${item.summary ?? ""}</div>
+          ${item.url ? `<div class="promo-meta"><a href="${item.url}" target="_blank" rel="noopener">查看詳情</a></div>` : ""}
+        `;
+        list.appendChild(div);
+      }
+      empty.style.display = "none";
+    }
+
+    (async () => {
+      const [history, promotions] = await Promise.all([
+        loadJson("data/history.json"),
+        loadJson("data/promotions.json"),
+      ]);
+      renderChart(history);
+      renderTable(history);
+      renderPromotions(promotions);
+    })();
+  </script>
+</body>
+</html>
