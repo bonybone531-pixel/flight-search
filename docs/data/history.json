@@ -130,5 +130,38 @@
     "departureAt": "2026-09-25T17:30:00+08:00",
     "returnAt": "2026-09-28T07:55:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-12",
+    "destination": "OKA",
+    "price": 9932,
+    "baseline": 10809,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-04T17:00:00+08:00",
+    "returnAt": "2026-12-07T20:30:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-12",
+    "destination": "PUS",
+    "price": 21184,
+    "baseline": 21184,
+    "isDeal": false,
+    "airline": "LJ",
+    "departureAt": "2026-08-21T16:00:00+08:00",
+    "returnAt": "2026-08-24T13:35:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-12",
+    "destination": "SEL",
+    "price": 5707,
+    "baseline": 11455,
+    "isDeal": true,
+    "airline": "LJ",
+    "departureAt": "2026-11-27T18:30:00+08:00",
+    "returnAt": "2026-11-30T07:50:00+09:00",
+    "transfers": 0
   }
 ]
