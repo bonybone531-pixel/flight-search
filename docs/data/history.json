@@ -471,5 +471,27 @@
     "departureAt": "2026-12-18T17:00:00+08:00",
     "returnAt": "2026-12-21T16:45:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-23",
+    "destination": "HKG",
+    "price": 5890,
+    "baseline": 5348,
+    "isDeal": false,
+    "airline": "UO",
+    "departureAt": "2026-10-08T13:35:00+08:00",
+    "returnAt": "2026-10-11T07:55:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-23",
+    "destination": "OKA",
+    "price": 10920,
+    "baseline": 10803,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-18T17:00:00+08:00",
+    "returnAt": "2026-12-21T16:45:00+09:00",
+    "transfers": 0
   }
 ]
