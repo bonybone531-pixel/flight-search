@@ -585,12 +585,12 @@
   {
     "scanDate": "2026-08-28",
     "destination": "HKG",
-    "price": 5890,
+    "price": 6119,
     "baseline": 5348,
     "isDeal": false,
     "airline": "UO",
-    "departureAt": "2026-10-08T13:35:00+08:00",
-    "returnAt": "2026-10-11T07:55:00+08:00",
+    "departureAt": "2026-09-25T20:40:00+08:00",
+    "returnAt": "2026-09-27T07:55:00+08:00",
     "transfers": 0
   },
   {
