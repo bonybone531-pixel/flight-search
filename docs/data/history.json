@@ -713,5 +713,82 @@
     "departureAt": "2026-09-25T15:30:00+08:00",
     "returnAt": "2026-09-28T10:10:00+07:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "HKG",
+    "price": 6328,
+    "baseline": 5348,
+    "isDeal": false,
+    "airline": "UO",
+    "departureAt": "2026-09-25T20:40:00+08:00",
+    "returnAt": "2026-09-27T07:55:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "MFM",
+    "price": 11670,
+    "baseline": 11670,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-09-25T16:25:00+08:00",
+    "returnAt": "2026-09-27T19:15:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "NGO",
+    "price": 9950,
+    "baseline": 9950,
+    "isDeal": false,
+    "airline": "IT",
+    "departureAt": "2026-11-27T16:45:00+08:00",
+    "returnAt": "2026-11-30T13:15:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "OKA",
+    "price": 10183,
+    "baseline": 10806,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-11T17:00:00+08:00",
+    "returnAt": "2026-12-14T16:45:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "PUS",
+    "price": 26821,
+    "baseline": 21184,
+    "isDeal": false,
+    "airline": "LJ",
+    "departureAt": "2026-09-25T16:00:00+08:00",
+    "returnAt": "2026-09-28T13:35:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "SEL",
+    "price": 9667,
+    "baseline": 7653,
+    "isDeal": false,
+    "airline": "LJ",
+    "departureAt": "2026-09-25T17:30:00+08:00",
+    "returnAt": "2026-09-27T07:55:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-08-30",
+    "destination": "SGN",
+    "price": 13499,
+    "baseline": 13499,
+    "isDeal": false,
+    "airline": "VJ",
+    "departureAt": "2026-09-25T15:30:00+08:00",
+    "returnAt": "2026-09-28T10:10:00+07:00",
+    "transfers": 0
   }
 ]
