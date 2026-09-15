@@ -1406,5 +1406,38 @@
     "departureAt": "2026-10-23T09:30:00+08:00",
     "returnAt": "2026-10-26T14:25:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-15",
+    "destination": "MFM",
+    "price": 9357,
+    "baseline": 9357,
+    "isDeal": false,
+    "airline": "NX",
+    "departureAt": "2026-12-31T12:25:00+08:00",
+    "returnAt": "2027-01-03T20:05:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-15",
+    "destination": "OKA",
+    "price": 10703,
+    "baseline": 10542,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2027-01-08T17:00:00+08:00",
+    "returnAt": "2027-01-11T16:45:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-15",
+    "destination": "TYO",
+    "price": 26115,
+    "baseline": 26115,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-10-23T09:30:00+08:00",
+    "returnAt": "2026-10-26T14:25:00+09:00",
+    "transfers": 0
   }
 ]
