@@ -1472,5 +1472,27 @@
     "departureAt": "2026-10-23T09:30:00+08:00",
     "returnAt": "2026-10-26T14:25:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-17",
+    "destination": "MFM",
+    "price": 9357,
+    "baseline": 9357,
+    "isDeal": false,
+    "airline": "NX",
+    "departureAt": "2026-12-31T12:25:00+08:00",
+    "returnAt": "2027-01-03T20:05:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-17",
+    "destination": "OKA",
+    "price": 13787,
+    "baseline": 10542,
+    "isDeal": false,
+    "airline": "IT",
+    "departureAt": "2026-10-16T07:10:00+08:00",
+    "returnAt": "2026-10-19T19:00:00+09:00",
+    "transfers": 0
   }
 ]
