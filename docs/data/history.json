@@ -1692,5 +1692,38 @@
     "departureAt": "2026-10-09T15:30:00+08:00",
     "returnAt": "2026-10-12T10:10:00+07:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-23",
+    "destination": "NGO",
+    "price": 9037,
+    "baseline": 9950,
+    "isDeal": false,
+    "airline": "IT",
+    "departureAt": "2026-10-16T17:05:00+08:00",
+    "returnAt": "2026-10-19T13:45:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-23",
+    "destination": "OKA",
+    "price": 10569,
+    "baseline": 10569,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2027-01-01T17:00:00+08:00",
+    "returnAt": "2027-01-04T16:45:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-23",
+    "destination": "SGN",
+    "price": 5625,
+    "baseline": 13499,
+    "isDeal": true,
+    "airline": "VJ",
+    "departureAt": "2026-10-09T15:30:00+08:00",
+    "returnAt": "2026-10-12T10:10:00+07:00",
+    "transfers": 0
   }
 ]
