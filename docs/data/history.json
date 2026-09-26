@@ -1802,5 +1802,16 @@
     "departureAt": "2026-10-09T15:30:00+08:00",
     "returnAt": "2026-10-12T10:10:00+07:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-09-26",
+    "destination": "OKA",
+    "price": 11001,
+    "baseline": 10569,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2027-01-08T17:00:00+08:00",
+    "returnAt": "2027-01-11T16:45:00+09:00",
+    "transfers": 0
   }
 ]
