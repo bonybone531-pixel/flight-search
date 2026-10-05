@@ -2121,5 +2121,60 @@
     "departureAt": "2026-10-10T08:00:00+08:00",
     "returnAt": "2026-10-11T11:20:00+07:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-05",
+    "destination": "HKG",
+    "price": 6914,
+    "baseline": 6097,
+    "isDeal": false,
+    "airline": "UO",
+    "departureAt": "2026-10-09T20:40:00+08:00",
+    "returnAt": "2026-10-11T07:55:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-05",
+    "destination": "KMJ",
+    "price": 18548,
+    "baseline": 18548,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2027-02-26T15:05:00+08:00",
+    "returnAt": "2027-03-01T19:15:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-05",
+    "destination": "MFM",
+    "price": 12238,
+    "baseline": 11670,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-24T17:20:00+08:00",
+    "returnAt": "2026-12-27T09:50:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-05",
+    "destination": "OKA",
+    "price": 11885,
+    "baseline": 10703,
+    "isDeal": false,
+    "airline": "CI",
+    "departureAt": "2026-12-18T09:45:00+08:00",
+    "returnAt": "2026-12-21T13:15:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-05",
+    "destination": "SGN",
+    "price": 13361,
+    "baseline": 7171,
+    "isDeal": false,
+    "airline": "CI",
+    "departureAt": "2026-10-10T08:00:00+08:00",
+    "returnAt": "2026-10-11T11:20:00+07:00",
+    "transfers": 0
   }
 ]
