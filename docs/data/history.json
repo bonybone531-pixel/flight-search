@@ -2341,5 +2341,49 @@
     "departureAt": "2026-10-30T07:10:00+08:00",
     "returnAt": "2026-11-02T13:15:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-12",
+    "destination": "HKG",
+    "price": 5955,
+    "baseline": 5955,
+    "isDeal": false,
+    "airline": "UO",
+    "departureAt": "2026-12-04T13:10:00+08:00",
+    "returnAt": "2026-12-06T07:50:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-12",
+    "destination": "MZG",
+    "price": 2806,
+    "baseline": 2806,
+    "isDeal": false,
+    "airline": "AE",
+    "departureAt": "2026-11-20T13:30:00+08:00",
+    "returnAt": "2026-11-22T08:50:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-12",
+    "destination": "OKA",
+    "price": 10998,
+    "baseline": 10703,
+    "isDeal": false,
+    "airline": "IT",
+    "departureAt": "2026-10-30T07:10:00+08:00",
+    "returnAt": "2026-11-02T13:15:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-12",
+    "destination": "PUS",
+    "price": 18330,
+    "baseline": 26821,
+    "isDeal": true,
+    "airline": "LJ",
+    "departureAt": "2026-12-25T16:15:00+08:00",
+    "returnAt": "2026-12-27T12:15:00+09:00",
+    "transfers": 0
   }
 ]
