@@ -2594,5 +2594,49 @@
     "departureAt": "2027-01-22T18:30:00+08:00",
     "returnAt": "2027-01-24T07:50:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-18",
+    "destination": "MZG",
+    "price": 2835,
+    "baseline": 2806,
+    "isDeal": false,
+    "airline": "B7",
+    "departureAt": "2026-11-20T17:50:00+08:00",
+    "returnAt": "2026-11-22T09:40:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-18",
+    "destination": "OKA",
+    "price": 10822,
+    "baseline": 10703,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-12-11T17:00:00+08:00",
+    "returnAt": "2026-12-14T20:30:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-18",
+    "destination": "PUS",
+    "price": 18330,
+    "baseline": 21184,
+    "isDeal": false,
+    "airline": "LJ",
+    "departureAt": "2026-12-25T16:15:00+08:00",
+    "returnAt": "2026-12-27T12:15:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-18",
+    "destination": "SEL",
+    "price": 10785,
+    "baseline": 9667,
+    "isDeal": false,
+    "airline": "LJ",
+    "departureAt": "2027-01-22T18:30:00+08:00",
+    "returnAt": "2027-01-24T07:50:00+09:00",
+    "transfers": 0
   }
 ]
