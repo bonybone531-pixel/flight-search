@@ -2891,5 +2891,27 @@
     "departureAt": "2026-10-30T13:15:00+08:00",
     "returnAt": "2026-11-02T16:45:00+09:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-28",
+    "destination": "MZG",
+    "price": 2737,
+    "baseline": 2806,
+    "isDeal": false,
+    "airline": "B7",
+    "departureAt": "2026-11-20T17:50:00+08:00",
+    "returnAt": "2026-11-22T09:40:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-10-28",
+    "destination": "OKA",
+    "price": 9314,
+    "baseline": 10753,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2026-10-30T13:15:00+08:00",
+    "returnAt": "2026-11-02T16:45:00+09:00",
+    "transfers": 0
   }
 ]
