@@ -3221,5 +3221,49 @@
     "departureAt": "2027-01-01T15:30:00+08:00",
     "returnAt": "2027-01-04T10:10:00+07:00",
     "transfers": 0
+  },
+  {
+    "scanDate": "2026-11-06",
+    "destination": "MFM",
+    "price": 7520,
+    "baseline": 9357,
+    "isDeal": false,
+    "airline": "NX",
+    "departureAt": "2027-02-19T12:25:00+08:00",
+    "returnAt": "2027-02-21T20:25:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-11-06",
+    "destination": "MZG",
+    "price": 2782,
+    "baseline": 2782,
+    "isDeal": false,
+    "airline": "B7",
+    "departureAt": "2026-11-20T17:50:00+08:00",
+    "returnAt": "2026-11-22T09:40:00+08:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-11-06",
+    "destination": "OKA",
+    "price": 10763,
+    "baseline": 10809,
+    "isDeal": false,
+    "airline": "JX",
+    "departureAt": "2027-02-19T13:15:00+08:00",
+    "returnAt": "2027-02-22T16:45:00+09:00",
+    "transfers": 0
+  },
+  {
+    "scanDate": "2026-11-06",
+    "destination": "SGN",
+    "price": 8040,
+    "baseline": 7171,
+    "isDeal": false,
+    "airline": "VJ",
+    "departureAt": "2027-01-01T15:30:00+08:00",
+    "returnAt": "2027-01-04T10:10:00+07:00",
+    "transfers": 0
   }
 ]
